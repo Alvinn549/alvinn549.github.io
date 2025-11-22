@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alvin Nuha Masrukhan | Portofolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.min.css">
+</head>
+
+<body>
+
+  <div class="main-background blob-container bg-main">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="overlay"></div>
+  </div>
+
+  <a href="#" class="nav-trigger top-left" onclick="location.reload()">ALVIN.NM</a>
+  <a href="#work" class="nav-trigger top-right" onclick="openPanel('work')">WORK</a>
+  <a href="#about" class="nav-trigger bottom-left" onclick="openPanel('about')">Tentang</a>
+  <a href="#contact" class="nav-trigger bottom-right" onclick="openPanel('contact')">Kontak</a>
+
+  <div class="close-btn" onclick="closeAllPanels()">&times;</div>
+
+  <section class="hero" id="hero">
+    <h1>HELLO WORLD</h1>
+    <p>Menciptakan solusi web yang cepat, estetik, dan fungsional.</p>
+  </section>
+
+  <div class="panel work-panel" id="work-panel">
+    <div class="blob-container bg-work">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="overlay"></div>
+    </div>
+    <div class="panel-content">
+      <h2>WORK</h2>
+      <div class="work-list">
+        <a href="https://esakip.kop.go.id/" class="work-item">
+          <div>
+            <span class="work-num">01.</span> Esakip
+          </div>
+          <span class="work-tech">CodeIgniter</span>
+        </a>
+      </div>
+
+      <div style="margin-top: 40px; text-align: center;">
+        <a href="https://github.com/alvinn549alvinn549" target="_blank" class="text-link">Lihat repositori lainnya
+          &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel about-panel" id="about-panel">
+    <div class="blob-container bg-about">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="overlay"></div>
+    </div>
+    <div class="panel-content">
+      <h2>Pendekatan Saya</h2>
+      <p style="line-height: 1.6; font-size: 1.3rem; font-weight: 300; margin-bottom: 2rem;">
+        Saya percaya teknologi terbaik adalah yang terasa alami. Bukan sekadar kode, tapi solusi.
+        Fokus saya adalah menghapus kompleksitas untuk menonjolkan esensi.
+      </p>
+
+      <div class="tech-stack">
+        <span>Laravel</span>
+        <span>CodeIgniter</span>
+        <span>MySQL/MariaDB</span>
+        <span>Linux Server</span>
+        <span>PHP</span>
+        <span>JavaScript</span>
+        <span>HTML/CSS</span>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <a href="Alvin-Nuha-Masrukhan-CV.pdf" download class="btn-outline">Unduh Resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel contact-panel" id="contact-panel">
+    <div class="blob-container bg-contact">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="overlay"></div>
+    </div>
+    <div class="panel-content">
+      <h2>Mari Berkolaborasi</h2>
+      <a href="mailto:alvinn549@gmail.com" class="email-link">
+        alvinn549@gmail.com
+      </a>
+      <p style="margin-top: 20px; opacity: 0.8; font-size: 1.1rem;">
+        Terbuka untuk proyek freelance & konsultasi profesional.
+      </p>
+
+      <div class="social-links">
+        <a href="https://github.com/alvinn549" target="_blank" class="social-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/alvin-nuha-masrukhan-6809a3214/" target="_blank" class="social-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/slvinnm/" target="_blank" class="social-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.min.js"></script>
+</body>
+
+</html>
