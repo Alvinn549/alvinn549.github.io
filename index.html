@@ -70,7 +70,7 @@
     <div class="overlay"></div>
   </div>
 
-  <a href="#" class="nav-trigger top-left" onclick="location.reload()">ALVIN.NM</a>
+  <a href="#" class="nav-trigger top-left" onclick="event.preventDefault(); location.reload()">ALVIN.NM</a>
   <a href="#work" class="nav-trigger top-right" onclick="openPanel('work')">WORK</a>
   <a href="#about" class="nav-trigger bottom-left" onclick="openPanel('about')">Tentang</a>
   <a href="#contact" class="nav-trigger bottom-right" onclick="openPanel('contact')">Kontak</a>
@@ -93,15 +93,16 @@
       <h2>WORK</h2>
       <div class="work-list">
         <a href="https://esakip.kop.go.id/" target="_blank" rel="noopener noreferrer" class="work-item">
-          <div>
+          <h3 style="margin: 0; font-size: inherit; font-weight: inherit;">
             <span class="work-num">01.</span> Esakip
-          </div>
+          </h3>
           <span class="work-tech">CodeIgniter</span>
         </a>
+
         <a href="https://sise-edu.id/" target="_blank" rel="noopener noreferrer" class="work-item">
-          <div>
+          <h3 style="margin: 0; font-size: inherit; font-weight: inherit;">
             <span class="work-num">02.</span> SISE (Simple Sex Education)
-          </div>
+          </h3>
           <span class="work-tech">Laravel</span>
         </a>
       </div>
@@ -127,6 +128,8 @@
         Saya percaya teknologi terbaik adalah yang terasa alami. Bukan sekadar kode, tapi solusi.
         Fokus saya adalah menghapus kompleksitas untuk menonjolkan esensi.
       </p>
+
+      <h3 style="margin-bottom: 1rem; font-size: 1.2rem; opacity: 0.9;">Teknologi Utama</h3>
 
       <div class="tech-stack">
         <span>Laravel</span>
@@ -159,6 +162,8 @@
       <p style="margin-top: 20px; opacity: 0.8; font-size: 1.1rem;">
         Terbuka untuk proyek freelance & konsultasi profesional.
       </p>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; opacity: 0.9;">Sosial Media</h3>
 
       <div class="social-links">
         <a href="https://github.com/alvinn549" target="_blank" rel="noopener noreferrer" class="social-item">
