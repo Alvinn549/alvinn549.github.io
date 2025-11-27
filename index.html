@@ -81,15 +81,20 @@
 
   <a href="/" class="nav-trigger top-left" onclick="event.preventDefault(); location.reload()"
     aria-label="Home">ALVIN.NM</a>
-  <a href="#work" class="nav-trigger top-right" onclick="openPanel('work')" aria-label="View Work">WORK</a>
-  <a href="#about" class="nav-trigger bottom-left" onclick="openPanel('about')" aria-label="About Me">Tentang</a>
-  <a href="#contact" class="nav-trigger bottom-right" onclick="openPanel('contact')" aria-label="Contact Me">Kontak</a>
+  <a href="#work" class="nav-trigger top-right" onclick="openPanel('work')" data-i18n="nav_work">KARYA</a>
+  <a href="#about" class="nav-trigger bottom-left" onclick="openPanel('about')" data-i18n="nav_about">TENTANG</a>
+  <a href="#contact" class="nav-trigger bottom-right" onclick="openPanel('contact')" data-i18n="nav_contact">KONTAK</a>
+
+  <div class="lang-switch">
+    <div class="lang-btn active" onclick="setLanguage('id')" id="btn-id">ID</div>
+    <div class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</div>
+  </div>
 
   <div class="close-btn" onclick="closeAllPanels()" aria-label="Close Panel">&times;</div>
 
   <section class="hero" id="hero">
-    <h1>HELLO WORLD</h1>
-    <p>Menciptakan solusi web yang cepat, estetik, dan fungsional.</p>
+    <h1 data-i18n="hero_title">HELLO WORLD</h1>
+    <p data-i18n="hero_desc">Menciptakan solusi web yang cepat, estetik, dan fungsional.</p>
   </section>
 
   <div class="panel work-panel" id="work-panel">
@@ -100,7 +105,7 @@
       <div class="overlay"></div>
     </div>
     <div class="panel-content">
-      <h2>WORK</h2>
+      <h2 data-i18n="work_panel_title">KARYA TERPILIH</h2>
       <div class="work-list">
 
         <a href="https://esakip.kop.go.id/" target="_blank" rel="noopener noreferrer" class="work-item">
@@ -108,9 +113,9 @@
             <h3 class="work-item-title">
               <span class="work-num">01.</span> Esakip (e-Government System)
             </h3>
-            <p class="work-desc">
-              Sistem Akuntabilitas Kinerja Instansi Pemerintah. Aplikasi berbasis web untuk pelaporan kinerja birokrasi,
-              visualisasi data statistik, dan manajemen evaluasi internal yang efisien dan transparan.
+            <p class="work-desc" data-i18n="work_1_desc">
+              Sistem Akuntabilitas Kinerja Instansi Pemerintah. Pelaporan kinerja birokrasi, visualisasi data, dan
+              evaluasi internal.
             </p>
           </div>
           <span class="work-tech">CodeIgniter</span>
@@ -121,7 +126,7 @@
             <h3 class="work-item-title">
               <span class="work-num">02.</span> SISE (Simple Sex Education)
             </h3>
-            <p class="work-desc">
+            <p class="work-desc" data-i18n="work_2_desc">
               Platform edukasi seksual digital interaktif. Dibangun dengan arsitektur MVC modern, fitur mencakup modul
               pembelajaran multimedia, dan sistem manajemen user yang aman untuk pendidikan kesehatan.
             </p>
@@ -131,9 +136,8 @@
       </div>
 
       <div class="view-all-container">
-        <a href="https://github.com/alvinn549" target="_blank" rel="noopener noreferrer" class="text-link">Jelajahi
-          proyek lainnya di GitHub
-          &rarr;</a>
+        <a href="https://github.com/alvinn549" target="_blank" class="text-link" data-i18n="view_github">Lihat
+          repositori lainnya &rarr;</a>
       </div>
     </div>
   </div>
@@ -146,17 +150,17 @@
       <div class="overlay"></div>
     </div>
     <div class="panel-content">
-      <h2>Pendekatan Saya</h2>
+      <h2 data-i18n="about_title">PENDEKATAN SAYA</h2>
 
       <div class="about-scroll-wrapper">
 
-        <p class="about-intro">
+        <p class="about-intro" data-i18n="about_intro">
           Sebagai Web Developer, saya percaya teknologi terbaik adalah yang terasa alami bagi penggunanya. Bukan sekadar
           menulis kode, saya menciptakan solusi digital yang menyelesaikan masalah bisnis nyata. Fokus utama saya adalah
           menghapus kompleksitas teknis untuk menonjolkan esensi fungsionalitas dan estetika.
         </p>
 
-        <h3 class="section-subtitle">Layanan & Keahlian</h3>
+        <h3 class="section-subtitle" data-i18n="services_title">Layanan & Keahlian</h3>
 
         <div class="services-list">
           <div class="service-item">Full Stack Web Development</div>
@@ -167,7 +171,7 @@
           <div class="service-item">Server Management</div>
         </div>
 
-        <h3 class="section-subtitle">Teknologi Utama</h3>
+        <h3 class="section-subtitle" data-i18n="tech_title">Teknologi Utama</h3>
 
         <div class="tech-stack">
           <span>Laravel</span>
@@ -181,8 +185,8 @@
         </div>
 
         <div class="download-container">
-          <a href="Alvin-Nuha-Masrukhan-CV.pdf" download class="btn-outline" aria-label="Download CV">Unduh Resume
-            Lengkap (PDF)</a>
+          <a href="Alvin-Nuha-Masrukhan-CV.pdf" download class="btn-outline" aria-label="Download CV"
+            data-i18n="download_cv">Unduh Resume Lengkap (PDF)</a>
         </div>
 
       </div>
@@ -197,16 +201,17 @@
       <div class="overlay"></div>
     </div>
     <div class="panel-content">
-      <h2>Mari Berkolaborasi</h2>
+      <h2 data-i18n="contact_title">Mari Berkolaborasi</h2>
+
       <a href="mailto:alvinn549@gmail.com" class="email-link">
         alvinn549@gmail.com
       </a>
 
-      <p class="contact-text">
+      <p class="contact-text" data-i18n="contact_sub">
         Terbuka untuk proyek freelance & konsultasi profesional.
       </p>
 
-      <h3 class="section-subtitle contact-subtitle">Sosial Media</h3>
+      <h3 class="section-subtitle contact-subtitle" data-i18n="social_title">Sosial Media</h3>
 
       <div class="social-links">
         <a href="https://github.com/alvinn549" target="_blank" rel="noopener noreferrer" class="social-item"
