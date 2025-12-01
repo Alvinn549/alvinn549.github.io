@@ -6,10 +6,11 @@
   "scripts": {
     "build:css": "cleancss src/css/styles.css -o dist/css/styles.min.css",
     "build:js": "terser src/js/scripts.js -o dist/js/scripts.min.js -c -m",
-    "copy:assets": "cpx \"src/*.{html,ico,txt,xml}\" dist",
+    "copy:assets": "cpx \"src/*.{html,ico,txt}\" dist",
     "copy:files": "cpx \"src/files/**/*\" dist/files",
     "copy:images": "cpx \"src/images/**/*\" dist/images",
-    "build": "npm run build:css && npm run build:js && npm run copy:assets && npm run copy:files && npm run copy:images && npm run cache:bust",
+    "copy:sitemap": "node build/update-sitemap.js",
+    "build": "npm run build:css && npm run build:js && npm run copy:assets && npm run copy:files && npm run copy:images && npm run copy:sitemap && npm run cache:bust",
     "dev:watch": "chokidar \"src/**/*\" -c \"npm run build\"",
     "dev:serve": "browser-sync start --server dist --files \"dist/**/*\" --port 4173",
     "dev": "concurrently \"npm run dev:watch\" \"npm run dev:serve\"",
