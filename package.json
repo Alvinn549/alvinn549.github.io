@@ -9,7 +9,11 @@
     "copy:assets": "cpx \"src/*.{html,ico,txt,xml}\" dist",
     "copy:files": "cpx \"src/files/**/*\" dist/files",
     "copy:images": "cpx \"src/images/**/*\" dist/images",
-    "build": "npm run build:css && npm run build:js && npm run copy:assets && npm run copy:files && npm run copy:images"
+    "build": "npm run build:css && npm run build:js && npm run copy:assets && npm run copy:files && npm run copy:images && npm run cache:bust",
+    "dev:watch": "chokidar \"src/**/*\" -c \"npm run build\"",
+    "dev:serve": "browser-sync start --server dist --files \"dist/**/*\" --port 4173",
+    "dev": "concurrently \"npm run dev:watch\" \"npm run dev:serve\"",
+    "cache:bust": "node build/cache-bust.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +28,10 @@
   },
   "homepage": "https://github.com/Alvinn549/alvinn549.github.io#readme",
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
     "clean-css-cli": "^5.6.3",
+    "concurrently": "^9.2.1",
     "cpx": "^1.5.0",
     "terser": "^5.44.1"
   }
