@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://alvinn549.github.io/sitemap.xml
