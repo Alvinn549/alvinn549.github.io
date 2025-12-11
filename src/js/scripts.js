@@ -1,3 +1,26 @@
+function openPanel(panelId) {
+  closeAllPanels();
+  const panel = document.getElementById(panelId + "-panel");
+  const hero = document.getElementById("hero");
+  if (panel) {
+    panel.classList.add("active");
+    hero.classList.add("dimmed");
+    document.body.classList.add("menu-open");
+  }
+}
+
+function closeAllPanels() {
+  const panels = document.querySelectorAll(".panel");
+  const hero = document.getElementById("hero");
+  panels.forEach((p) => p.classList.remove("active"));
+  if (hero) hero.classList.remove("dimmed");
+  document.body.classList.remove("menu-open");
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeAllPanels();
+});
+
 const translations = {
   id: {
     nav_work: "KARYA",
@@ -64,25 +87,6 @@ function setLanguage(lang) {
   }, 300);
 }
 
-function openPanel(panelId) {
-  closeAllPanels();
-  const panel = document.getElementById(panelId + "-panel");
-  const hero = document.getElementById("hero");
-  if (panel) {
-    panel.classList.add("active");
-    hero.classList.add("dimmed");
-    document.body.classList.add("menu-open");
-  }
-}
-
-function closeAllPanels() {
-  const panels = document.querySelectorAll(".panel");
-  const hero = document.getElementById("hero");
-  panels.forEach((p) => p.classList.remove("active"));
-  if (hero) hero.classList.remove("dimmed");
-  document.body.classList.remove("menu-open");
-}
-
 function setTheme(mode, save = true) {
   document.querySelectorAll('.theme-group .dock-btn').forEach(btn => btn.classList.remove('active'));
 
@@ -104,22 +108,33 @@ function initTheme() {
   setTheme(savedTheme, false);
 }
 
-function toggleDock() {
-  const dock = document.getElementById('settings-dock');
-  dock.classList.toggle('collapsed');
-}
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeAllPanels();
-});
-
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
   if (localStorage.getItem('theme') === 'system') {
     setTheme('system');
   }
 });
 
+function toggleDock() {
+  const dock = document.getElementById('settings-dock');
+  dock.classList.toggle('collapsed');
+
+  const isCollapsed = dock.classList.contains('collapsed');
+  localStorage.setItem('dockState', isCollapsed ? 'closed' : 'open');
+}
+
+function initDockState() {
+  const dock = document.getElementById('settings-dock');
+  const savedState = localStorage.getItem('dockState');
+
+  if (savedState === 'closed') {
+    dock.classList.add('collapsed');
+  } else {
+    dock.classList.remove('collapsed');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   setLanguage(currentLang);
+  initDockState();
 });
