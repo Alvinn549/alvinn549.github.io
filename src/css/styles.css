@@ -11,20 +11,24 @@
   --overlay-bg: rgba(10, 10, 10, 0.5);
 
   /* Animation Physics */
+  /* Screen: Colors add up to become brighter (Neon effect) */
   --blob-blend: screen;
   --transition-speed: 0.7s;
   --easing: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* Blob Colors */
+  /* Blob Colors - Dark Mode */
   --main-b1: #4cc9f0;
   --main-b2: #f72585;
   --main-b3: #4361ee;
+
   --work-b1: #006466;
   --work-b2: #065a60;
   --work-b3: #4d194d;
+
   --about-b1: #9b2226;
   --about-b2: #e9d8a6;
   --about-b3: #bb3e03;
+
   --contact-b1: #fdc500;
   --contact-b2: #333333;
   --contact-b3: #ffffff;
@@ -32,33 +36,39 @@
 
 /* --- LIGHT MODE --- */
 [data-theme="light"] {
-  /* Light Mode Colors */
+  /* Use Off-White for background to reduce eye strain */
   --bg-color: #faf9f6;
-  --container-bg: #f2f0eb;
+  --container-bg: #ffffff;
   --text-color: #2d3436;
   --accent-color: #ff6b6b;
   --hero-bg: url('../images/hero-text-bg-light.webp');
 
-  /* Light Mode Glass */
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --overlay-bg: rgba(250, 249, 246, 0.65);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --overlay-bg: rgba(255, 255, 255, 0.7);
 
-  /* Watercolor Effect */
+  /* Multiply: Colors darken when overlapping (Watercolor effect) */
   --blob-blend: multiply;
 
-  /* Blob Colors - Pastels */
-  --main-b1: #cceeff;
-  --main-b2: #ffe0e9;
-  --main-b3: #e6e6fa;
-  --work-b1: #c1e1c1;
-  --work-b2: #e0f7fa;
-  --work-b3: #d1c4e9;
-  --about-b1: #ffdac1;
-  --about-b2: #fffac8;
-  --about-b3: #ffccbc;
-  --contact-b1: #fff176;
-  --contact-b2: #e0e0e0;
-  --contact-b3: #b0bec5;
+  /* --- BLOB COLORS (Saturated for Multiply) --- */
+  --main-b1: #4ecdc4;
+  --main-b2: #ff99ac;
+  --main-b3: #a1c4fd;
+
+  /* Work: Mint / Teal / Soft Purple */
+  --work-b1: #88d8b0;
+  --work-b2: #81ecec;
+  --work-b3: #a29bfe;
+
+  /* About: Apricot / Lemon / Coral */
+  --about-b1: #ffb7b2;
+  --about-b2: #ffeaa7;
+  --about-b3: #fab1a0;
+
+  /* Contact: The Gold Fix */
+  --contact-b1: #ffcc00;
+  /* Sky Blue used here; mixes with Gold to make natural shadow, not mud */
+  --contact-b2: #74b9ff;
+  --contact-b3: #dfe6e9;
 }
 
 * {
@@ -281,7 +291,7 @@ body {
 }
 
 .hero-title {
-  font-size: 8rem;
+  font-size: 9rem;
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
@@ -816,7 +826,7 @@ body.menu-open .nav-trigger {
 /* --- RESPONSIVE --- */
 @media (max-width:768px) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   .services-list {
