@@ -1,21 +1,3 @@
-function openPanel(e) {
-  closeAllPanels();
-  let a = document.getElementById(e + "-panel"),
-    t = document.getElementById("hero");
-  a && (a.classList.add("active"), t.classList.add("dimmed"), document.body.classList.add("menu-open"));
-}
-
-function closeAllPanels() {
-  let e = document.querySelectorAll(".panel"),
-    a = document.getElementById("hero");
-  e.forEach((e) => e.classList.remove("active")),
-    a.classList.remove("dimmed"),
-    document.body.classList.remove("menu-open");
-}
-document.addEventListener("keydown", function (e) {
-  "Escape" === e.key && closeAllPanels();
-});
-
 const translations = {
   id: {
     nav_work: "KARYA",
@@ -58,20 +40,86 @@ const translations = {
     social_title: "Social Media",
   },
 };
+
 let currentLang = "id";
-function setLanguage(e) {
-  if (!translations[e] || currentLang === e) return;
-  document.getElementById("btn-id").classList.toggle("active", "id" === e),
-    document.getElementById("btn-en").classList.toggle("active", "en" === e);
-  let a = document.querySelectorAll("[data-i18n]");
-  a.forEach((e) => {
-    e.classList.add("text-changing");
-  }),
-    setTimeout(() => {
-      (currentLang = e),
-        a.forEach((a) => {
-          let t = a.getAttribute("data-i18n");
-          translations[e][t] && (a.innerText = translations[e][t]), a.classList.remove("text-changing");
-        });
-    }, 300);
+
+function setLanguage(lang) {
+  if (!translations[lang] || currentLang === lang) return;
+
+  document.getElementById("btn-id").classList.toggle("active", lang === "id");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+  const elements = document.querySelectorAll("[data-i18n]");
+  elements.forEach((el) => el.classList.add("text-changing"));
+
+  setTimeout(() => {
+    currentLang = lang;
+    elements.forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.innerText = translations[lang][key];
+      }
+      el.classList.remove("text-changing");
+    });
+  }, 300);
 }
+
+function openPanel(panelId) {
+  closeAllPanels();
+  const panel = document.getElementById(panelId + "-panel");
+  const hero = document.getElementById("hero");
+  if (panel) {
+    panel.classList.add("active");
+    hero.classList.add("dimmed");
+    document.body.classList.add("menu-open");
+  }
+}
+
+function closeAllPanels() {
+  const panels = document.querySelectorAll(".panel");
+  const hero = document.getElementById("hero");
+  panels.forEach((p) => p.classList.remove("active"));
+  if (hero) hero.classList.remove("dimmed");
+  document.body.classList.remove("menu-open");
+}
+
+function setTheme(mode, save = true) {
+  document.querySelectorAll('.theme-group .dock-btn').forEach(btn => btn.classList.remove('active'));
+
+  const activeBtn = document.getElementById(`theme-${mode}`);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  let appliedTheme = mode;
+  if (mode === 'system') {
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    appliedTheme = systemDark ? 'dark' : 'light';
+  }
+
+  document.documentElement.setAttribute('data-theme', appliedTheme);
+  if (save) localStorage.setItem('theme', mode);
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'system';
+  setTheme(savedTheme, false);
+}
+
+function toggleDock() {
+  const dock = document.getElementById('settings-dock');
+  dock.classList.toggle('collapsed');
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeAllPanels();
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (localStorage.getItem('theme') === 'system') {
+    setTheme('system');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  setLanguage(currentLang);
+});

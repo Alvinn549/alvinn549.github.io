@@ -85,9 +85,56 @@
   <a href="#about" class="nav-trigger bottom-left" onclick="openPanel('about')" data-i18n="nav_about">TENTANG</a>
   <a href="#contact" class="nav-trigger bottom-right" onclick="openPanel('contact')" data-i18n="nav_contact">KONTAK</a>
 
-  <div class="lang-switch">
-    <div class="lang-btn active" onclick="setLanguage('id')" id="btn-id">ID</div>
-    <div class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</div>
+  <div class="settings-dock" id="settings-dock">
+
+    <button class="dock-toggle" onclick="toggleDock()" aria-label="Toggle Settings">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="dock-content">
+
+      <div class="dock-group theme-group">
+        <div class="dock-btn active" onclick="setTheme('system')" id="theme-system" aria-label="System">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <div class="dock-btn" onclick="setTheme('dark')" id="theme-dark" aria-label="Dark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+        <div class="dock-btn" onclick="setTheme('light')" id="theme-light" aria-label="Light">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </div>
+      </div>
+
+      <div class="dock-divider"></div>
+
+      <div class="dock-group lang-group">
+        <div class="dock-btn dock-text-btn active" onclick="setLanguage('id')" id="btn-id">ID</div>
+        <div class="dock-btn dock-text-btn" onclick="setLanguage('en')" id="btn-en">EN</div>
+      </div>
+
+    </div>
   </div>
 
   <div class="close-btn" onclick="closeAllPanels()" aria-label="Close Panel">&times;</div>
