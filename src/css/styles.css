@@ -4,7 +4,7 @@
   --accent-color: #ff4d00;
   --bg-color: #000000;
   --container-bg: #050505;
-  --hero-bg: url('../images/hero-text-bg.jpg');
+  --hero-bg: url('../images/hero-text-bg.webp');
 
   /* Glass Styles */
   --glass-bg: rgba(20, 20, 20, 0.4);
@@ -37,7 +37,7 @@
   --container-bg: #f2f0eb;
   --text-color: #2d3436;
   --accent-color: #ff6b6b;
-  --hero-bg: url('../images/hero-text-bg-light.jpg');
+  --hero-bg: url('../images/hero-text-bg-light.webp');
 
   /* Light Mode Glass */
   --glass-bg: rgba(255, 255, 255, 0.6);
