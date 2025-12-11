@@ -1,74 +1,75 @@
 :root {
-  /* --- DARK MODE (DEFAULT) --- */
   --text-color: #ffffff;
   --accent-color: #ff4d00;
-  --bg-color: #000000;
-  --container-bg: #050505;
+
+  --bg-color: #050505;
+  --container-bg: #0a0a0a;
   --hero-bg: url('../images/hero-text-bg.webp');
 
-  /* Glass Styles */
-  --glass-bg: rgba(20, 20, 20, 0.4);
-  --overlay-bg: rgba(10, 10, 10, 0.5);
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --overlay-bg: rgba(0, 0, 0, 0.5);
 
   /* Animation Physics */
-  /* Screen: Colors add up to become brighter (Neon effect) */
   --blob-blend: screen;
   --transition-speed: 0.7s;
   --easing: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* Blob Colors - Dark Mode */
-  --main-b1: #4cc9f0;
-  --main-b2: #f72585;
-  --main-b3: #4361ee;
+  /* --- BLOB COLORS --- */
+  /* Main: Cyan / Magenta / Blue */
+  --main-b1: #0096c7;
+  --main-b2: #d0006f;
+  --main-b3: #3f37c9;
 
-  --work-b1: #006466;
-  --work-b2: #065a60;
-  --work-b3: #4d194d;
+  /* Work: Teal & Purple */
+  --work-b1: #004b4d;
+  --work-b2: #005f63;
+  --work-b3: #3c093c;
 
-  --about-b1: #9b2226;
-  --about-b2: #e9d8a6;
-  --about-b3: #bb3e03;
+  /* About: Warm Glow */
+  --about-b1: #7d1215;
+  --about-b2: #cca000;
+  --about-b3: #942b00;
 
+  /* Contact: Gold & Dark */
   --contact-b1: #fdc500;
-  --contact-b2: #333333;
+  --contact-b2: #1a1a1a;
   --contact-b3: #ffffff;
 }
 
-/* --- LIGHT MODE --- */
 [data-theme="light"] {
-  /* Use Off-White for background to reduce eye strain */
-  --bg-color: #faf9f6;
-  --container-bg: #ffffff;
-  --text-color: #2d3436;
-  --accent-color: #ff6b6b;
+  --text-color: #111111;
+  --accent-color: #ff0055;
+
+  --bg-color: #ffffff;
+  --container-bg: #f8f9fa;
   --hero-bg: url('../images/hero-text-bg-light.webp');
 
-  --glass-bg: rgba(255, 255, 255, 0.4);
-  --overlay-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --overlay-bg: rgba(255, 255, 255, 0.8);
 
-  /* Multiply: Colors darken when overlapping (Watercolor effect) */
+  /* Multiply: Markers on Paper effect */
   --blob-blend: multiply;
 
-  /* --- BLOB COLORS (Saturated for Multiply) --- */
-  --main-b1: #4ecdc4;
-  --main-b2: #ff99ac;
-  --main-b3: #a1c4fd;
+  /* --- BLOB COLORS  --- */
+  /* Main: Cyan / Pink / Purple */
+  --main-b1: #00b4d8;
+  --main-b2: #ff6392;
+  --main-b3: #a688fa;
 
-  /* Work: Mint / Teal / Soft Purple */
-  --work-b1: #88d8b0;
+  /* Work: Teal & Mint */
+  --work-b1: #4ecdc4;
   --work-b2: #81ecec;
-  --work-b3: #a29bfe;
+  --work-b3: #c77dff;
 
-  /* About: Apricot / Lemon / Coral */
-  --about-b1: #ffb7b2;
-  --about-b2: #ffeaa7;
-  --about-b3: #fab1a0;
+  /* About: Peach & Yellow */
+  --about-b1: #ffadad;
+  --about-b2: #ffd6a5;
+  --about-b3: #ffc6ff;
 
-  /* Contact: The Gold Fix */
-  --contact-b1: #ffcc00;
-  /* Sky Blue used here; mixes with Gold to make natural shadow, not mud */
-  --contact-b2: #74b9ff;
-  --contact-b3: #dfe6e9;
+  /* Contact: Gold on White */
+  --contact-b1: #e6b800;
+  --contact-b2: #74c0fc;
+  --contact-b3: #adb5bd;
 }
 
 * {
