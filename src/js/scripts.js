@@ -4,7 +4,7 @@
   const CONFIG = {
     defaultLang: 'id',
     defaultTheme: 'system',
-    particleInterval: 400,
+    particleInterval: 300,
     svgParticleSources: [
       '../images/snow-1.svg',
       '../images/snow-2.svg',
@@ -146,30 +146,86 @@
     if (!DOM.particleContainer) return;
 
     function createParticle() {
-      // Optimization: Stop creating particles if tab is hidden to save battery
+      // Battery Saver
       if (document.hidden) return;
 
       const particle = document.createElement("img");
+
+      if (!CONFIG.svgParticleSources || CONFIG.svgParticleSources.length === 0) return;
+
       const randomSvg = CONFIG.svgParticleSources[Math.floor(Math.random() * CONFIG.svgParticleSources.length)];
 
       particle.src = randomSvg;
       particle.classList.add("particle");
-      particle.alt = ""; // Decorative
+      particle.alt = "";
 
-      // Randomize Props
-      const startX = Math.random() * 100;
+      // 1. Size & Depth
       const size = Math.random() * 20 + 10;
-      const fallDuration = Math.random() * 7 + 5;
-      const delay = Math.random() * 2;
-      const opacity = Math.random() * 0.5 + 0.3;
+      const isDistant = size < 18;
+
+      // 2. Base Speed (Slower Version)
+      // Range: 12 seconds (fastest/biggest) to 22 seconds (slowest/smallest)
+      let fallDuration = 22 - ((size - 10) / 20 * 10);
+
+      // 3. Determine Behavior: 60% Chance to Spin
+      const isSpinner = Math.random() < 0.60;
+
+      let animationName, animationDuration, cssVars;
+
+      if (isSpinner) {
+        // --- SPINNER LOGIC ---
+        animationName = "fall, tumble";
+
+        // Keep speed consistent with fall
+        fallDuration = fallDuration * 0.95;
+
+        // Spin Speed: Random between 1s and 3s
+        const spinSpeed = Math.random() * 2 + 1;
+
+        animationDuration = `${fallDuration}s, ${spinSpeed}s`;
+
+        particle.style.animationTimingFunction = "linear, linear";
+
+        cssVars = ``;
+      } else {
+        // --- SWAYER LOGIC ---
+        animationName = "fall, sway";
+
+        const swayAmplitude = (Math.random() - 0.5) * 200;
+        const swayRotation = (Math.random() - 0.5) * 60;
+        const swayDuration = Math.random() * 3 + 3;
+
+        animationDuration = `${fallDuration}s, ${swayDuration}s`;
+
+        // Natural timing: Linear for fall, Ease-In-Out for sway
+        particle.style.animationTimingFunction = "linear, ease-in-out";
+
+        cssVars = `
+          --drift: ${swayAmplitude}px;
+          --rot: ${swayRotation}deg;
+        `;
+      }
+
+      const startX = Math.random() * 100;
+
+      if (isDistant) {
+        particle.classList.add("distant");
+      }
 
       particle.style.cssText = `
-                left: ${startX}vw;
-                width: ${size}px;
-                animation-duration: ${fallDuration}s, 3s;
-                animation-delay: 0s, ${delay}s;
-                opacity: ${opacity};
-            `;
+        left: ${startX}vw;
+        width: ${size}px;
+        opacity: ${Math.random() * 0.5 + 0.4};
+        
+        /* Explicitly set the timing function we calculated above */
+        animation-timing-function: ${particle.style.animationTimingFunction};
+        
+        ${cssVars}
+
+        animation-name: ${animationName};
+        animation-duration: ${animationDuration};
+        animation-delay: 0s, ${Math.random() * -3}s; 
+      `;
 
       DOM.particleContainer.appendChild(particle);
 
@@ -179,7 +235,6 @@
       }, fallDuration * 1000);
     }
 
-    // Clear existing interval if any (prevents double init)
     if (state.particleTimer) clearInterval(state.particleTimer);
     state.particleTimer = setInterval(createParticle, CONFIG.particleInterval);
   }

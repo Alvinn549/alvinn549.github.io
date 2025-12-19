@@ -103,12 +103,16 @@ body {
   position: absolute;
   top: -10%;
   user-select: none;
-  animation-name: fall, sway;
-  animation-timing-function: linear, ease-in-out;
-  animation-iteration-count: infinite, infinite;
-  animation-play-state: running;
+  pointer-events: none;
+  will-change: transform, top;
 }
 
+.particle.distant {
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+/* Animation 1: Falling down */
 @keyframes fall {
   0% {
     top: -10%;
@@ -119,13 +123,15 @@ body {
   }
 }
 
+/* Animation 2: Gentle Sway (Natural) */
 @keyframes sway {
   0% {
     transform: translateX(0px) rotate(0deg);
   }
 
   50% {
-    transform: translateX(50px) rotate(15deg);
+    /* Uses JS variables to randomize left/right drift */
+    transform: translateX(var(--drift)) rotate(var(--rot));
   }
 
   100% {
@@ -133,8 +139,22 @@ body {
   }
 }
 
+@keyframes tumble {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
 [data-theme="light"] .particle {
   filter: invert(1);
+}
+
+[data-theme="light"] .particle.distant {
+  filter: invert(1) blur(2px);
 }
 
 /* --- BLOB --- */
