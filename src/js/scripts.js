@@ -4,7 +4,7 @@
   const CONFIG = {
     defaultLang: 'id',
     defaultTheme: 'system',
-    particleInterval: 300,
+    particleInterval: 370,
     svgParticleSources: [
       '../images/snow-1.svg',
       '../images/snow-2.svg',
