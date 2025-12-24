@@ -2,7 +2,7 @@
   'use strict';
 
   const CONFIG = {
-    defaultLang: 'id',
+    defaultLang: 'en',
     defaultTheme: 'system',
     particleInterval: 300,
     svgParticleSources: [
