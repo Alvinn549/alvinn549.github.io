@@ -167,8 +167,8 @@
       // Range: 12 seconds (fastest/biggest) to 22 seconds (slowest/smallest)
       let fallDuration = 22 - ((size - 10) / 20 * 10);
 
-      // 3. Determine Behavior: 60% Chance to Spin
-      const isSpinner = Math.random() < 0.60;
+      // 3. Determine Behavior: 70% Chance to Spin
+      const isSpinner = Math.random() < 0.70;
 
       let animationName, animationDuration, cssVars;
 
